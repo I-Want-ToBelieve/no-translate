@@ -1,0 +1,5 @@
+{
+  "namespace": "github.com/backtolife2021",
+  "copyright": "2021, backtolife (https://floatsyi.com)",
+  "include": ["http*://*"]
+}
