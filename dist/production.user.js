@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name        no-translate
-// @description wip
+// @description 避免 google 网页翻译代码块
 // @namespace   github.com/backtolife2021
 // @include     http*://*
-// @version     0.0.0
+// @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
+// @version     1.0.0
 // @homepage    https://github.com/backtolife2021/no-translate
 // @author      backtolife
 // @license     MIT
@@ -34,19 +35,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-/* globals no thing */
-(function () {
+/* globals VM */
+(function (VM) {
     'use strict';
+
+    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+    var VM__default = /*#__PURE__*/_interopDefaultLegacy(VM);
 
     const add_no_translate_class = (element) => {
         element.classList.add('notranslate');
     };
-    /**
-     * prism
-     */
-    for (const element of Array.from(document.querySelectorAll('.prism-code'))) {
-        add_no_translate_class(element);
-    }
+    const run = () => {
+        /**
+         * prism
+         */
+        for (const element of Array.from(document.querySelectorAll('.prism-code'))) {
+            add_no_translate_class(element);
+        }
+    };
+    VM__default["default"].observe(document.body, () => {
+        run();
+        return false;
+    });
 
-})();
+})(VM);
 //# sourceMappingURL=production.user.js.map

@@ -3,6 +3,7 @@
 // @description wip
 // @namespace   github.com/backtolife2021
 // @include     http*://*
+// @require     https://cdn.jsdelivr.net/npm/@violentmonkey/dom@2
 // @version     0.0.0
 // @homepage    https://github.com/backtolife2021/no-translate
 // @author      backtolife

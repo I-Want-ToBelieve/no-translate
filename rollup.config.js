@@ -18,9 +18,11 @@ export default {
     format: 'iife',
     name: 'RollupUserScript',
     banner: () =>
-      '\n/*\n' + fs.readFileSync('./LICENSE', 'utf8') + '*/\n\n/* globals no thing */',
+      '\n/*\n' + fs.readFileSync('./LICENSE', 'utf8') + '*/\n\n/* globals VM */',
     sourcemap: true,
-    globals: {},
+    globals: {
+      '@violentmonkey/dom': 'VM',
+    },
   },
   plugins: [
     replace({
@@ -48,6 +50,7 @@ export default {
     }),
   ],
   external (id) {
-    return [].includes(id)
+    console.log(id)
+    return ['@violentmonkey/dom'].includes(id)
   },
 }
